@@ -15,9 +15,9 @@
   "credentialSubject": {
     "id": "did:example:b34ca6cd37bbf23",
     "type": ["PermanentResident", "Person"],
-    "givenName": "JOHN",
-    "familyName": "SMITH",
-    "gender": "Male",
+    "givenName": "Jinju",
+    "familyName": "Hwang",
+    "gender": "Female",
     "image": "data:image/png;base64,iVBORw0KGgokJggg==",
     "residentSince": "2015-01-01",
     "lprCategory": "C09",

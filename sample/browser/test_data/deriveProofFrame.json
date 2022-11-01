@@ -1,0 +1,18 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://w3id.org/traceability/v1",
+    "https://w3id.org/security/bbs/v1"
+  ],
+  "type": ["VerifiableCredential", "TraceablePresentation"],
+  "credentialSubject": {
+    "@explicit": true,
+    "type": ["Product"],
+    "name": {},
+    "weight": {
+      "type": [],
+      "unitCode": {},
+      "value": {}
+    }
+  }
+}
