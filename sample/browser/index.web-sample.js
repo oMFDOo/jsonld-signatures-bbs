@@ -109,6 +109,7 @@ const main = async () => {
     documentLoader,
   });
 
+  // derivedProof.familyName = "EFJI";
 
   console.log("Verifying Derived Proof : 파생 증명 확인");
   console.log(JSON.stringify(derivedProof, null, 2));

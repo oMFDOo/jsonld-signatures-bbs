@@ -17,7 +17,7 @@
     "webpack-dev-server": "4.9.2"
   },
   "dependencies": {
-    "@mattrglobal/jsonld-signatures-bbs": "link:../../",
+    "@mattrglobal/jsonld-signatures-bbs": "^1.1.0",
     "jsonld-signatures": "5.0.1"
   },
   "resolutions": {
