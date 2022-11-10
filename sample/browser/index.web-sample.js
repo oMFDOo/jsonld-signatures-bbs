@@ -82,14 +82,22 @@ const main = async () => {
 
   //Sign the input document
   //입력 문서에 서명
-  const signedDocument = await sign(inputDocument, {
+  // keyPair : Bls12381G2KeyPair
+  let signedDocument = await sign(inputDocument, {
     suite: new BbsBlsSignature2020({ key: keyPair }),
     purpose: new purposes.AssertionProofPurpose(),
     documentLoader,
   });
 
   console.log("Input document with proof : Issuer 서명 결과");
+  console.log("type : " + typeof(signedDocument));
   console.log(JSON.stringify(signedDocument, null, 2));
+  // 변형 테스트
+  // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/Jinju/g, 'Chacha');
+  // console.log(change);
+  // change = JSON.parse(change);
+  // signedDocument = change;
+
 
   //Verify the proof
   //증명 확인
@@ -108,6 +116,9 @@ const main = async () => {
     suite: new BbsBlsSignatureProof2020(),
     documentLoader,
   });
+
+  console.log("Verifying Derived Proof의 데이터 추출 테스트");
+  console.log(JSON.stringify(derivedProof.citizenVocab, null, 2));
 
   // derivedProof.familyName = "EFJI";
 
