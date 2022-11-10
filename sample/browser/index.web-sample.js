@@ -92,7 +92,7 @@ const main = async () => {
   console.log("Input document with proof : Issuer 서명 결과");
   console.log("type : " + typeof(signedDocument));
   console.log(JSON.stringify(signedDocument, null, 2));
-  // 변형 테스트
+  // VC 변형 테스트 1
   // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/Jinju/g, 'Chacha');
   // console.log(change);
   // change = JSON.parse(change);
@@ -112,15 +112,27 @@ const main = async () => {
 
   //Derive a proof
   //증명 도출 : 서명 확장==> VP
-  const derivedProof = await deriveProof(signedDocument, revealDocument, {
+  let derivedProof = await deriveProof(signedDocument, revealDocument, {
     suite: new BbsBlsSignatureProof2020(),
     documentLoader,
   });
 
-  console.log("Verifying Derived Proof의 데이터 추출 테스트");
-  console.log(JSON.stringify(derivedProof.citizenVocab, null, 2));
+  
+  // VP 변형 테스트 2
+  // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/Jinju/g, 'Chacha');
+  // console.log(change);
+  // change = JSON.parse(change);
+  // derivedProof = change;
+  // Issuer DID 변경
+  // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/489398593/g, '489398585');
+  // console.log(change);
+  // change = JSON.parse(change);
+  // derivedProof = change;
+  
 
-  // derivedProof.familyName = "EFJI";
+  console.log("Verifying Derived Proof의 데이터 추출 테스트");
+  console.log(JSON.stringify(derivedProof, null, 2).toString());
+
 
   console.log("Verifying Derived Proof : 파생 증명 확인");
   console.log(JSON.stringify(derivedProof, null, 2));
