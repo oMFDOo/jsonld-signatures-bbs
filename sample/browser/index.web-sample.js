@@ -32,6 +32,8 @@ import citizenVocab from "./data/citizenVocab.json";
 import credentialContext from "./data/credentialsContext.json";
 // Jwk, Jws ~
 import suiteContext from "./data/suiteContext.json";
+import { generateKeyPair } from "crypto";
+import { RSAKeyPair } from "crypto-ld";
 
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 const documents = {
@@ -72,10 +74,16 @@ const customDocLoader = (url) => {
 /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 const documentLoader = extendContextLoader(customDocLoader);
 
+
 const main = async () => {
   //Import the example key pair
   // 예제 키 쌍 가져오기
   const keyPair = await new Bls12381G2KeyPair(keyPairOptions);
+  let c = JSON.stringify(keyPair.toString(), null, 2).toString().replace(/"publicKey":"oq/g, '"publicKey":"fe');
+  let myKey = keyPair;
+  console.log("변경 전 : ", keyPair);
+  // myKey.publicKey = myKey.publicKey.toString().replace(/R/g, 's');
+  console.log("변경 후 : ", JSON.stringify(c, null, 2));
 
   console.log("Input document : 기본 VC");
   console.log(JSON.stringify(inputDocument, null, 2));
@@ -92,12 +100,18 @@ const main = async () => {
   console.log("Input document with proof : Issuer 서명 결과");
   console.log("type : " + typeof(signedDocument));
   console.log(JSON.stringify(signedDocument, null, 2));
-  // VC 변형 테스트 1
+  // VC 변형 테스트 1 - 데이터 변형
   // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/Jinju/g, 'Chacha');
   // console.log(change);
   // change = JSON.parse(change);
   // signedDocument = change;
 
+  // VC 변형 테스트 1 - 데이터 누락
+  // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/"givenName": "Jinju",/g, '');
+  // console.log("변형 내용");
+  // console.log(change);
+  // change = JSON.parse(change);
+  // signedDocument = change;
 
   //Verify the proof
   //증명 확인
@@ -106,6 +120,7 @@ const main = async () => {
     purpose: new purposes.AssertionProofPurpose(),
     documentLoader,
   });
+
 
   console.log("Verification result : 일반 VC 검증 결과");
   console.log(JSON.stringify(verified, null, 2));
@@ -116,26 +131,38 @@ const main = async () => {
     suite: new BbsBlsSignatureProof2020(),
     documentLoader,
   });
-
   
+  console.log("Verifying Derived Proof : 파생 증명 확인");
+  console.log(JSON.stringify(derivedProof, null, 2));
+
+  // console.log("키생성")
+  // var myKey = generateKeyPair({
+  //   bits: 2048,
+  //   e: 0x10001,
+  //   workers: -1
+  // }, (err, keyPair) => {
+  // });
+  // console.log("공개키", myKey.publicKey);
+  // console.log("비밀키", myKey.privateKey);
+    
   // VP 변형 테스트 2
   // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/Jinju/g, 'Chacha');
   // console.log(change);
   // change = JSON.parse(change);
   // derivedProof = change;
+  
+  // VC 변형 테스트 2 - 데이터 누락
+  let change = JSON.stringify(derivedProof, null, 2).toString().replace(/"gender": "Female",/g, '');
+  console.log("변형 내용");
+  console.log(change);
+  change = JSON.parse(change);
+  derivedProof = change;
+
   // Issuer DID 변경
   // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/489398593/g, '489398585');
   // console.log(change);
   // change = JSON.parse(change);
   // derivedProof = change;
-  
-
-  console.log("Verifying Derived Proof의 데이터 추출 테스트");
-  console.log(JSON.stringify(derivedProof, null, 2).toString());
-
-
-  console.log("Verifying Derived Proof : 파생 증명 확인");
-  console.log(JSON.stringify(derivedProof, null, 2));
 
   //Verify the derived proof
   // 파생된 증명 확인
