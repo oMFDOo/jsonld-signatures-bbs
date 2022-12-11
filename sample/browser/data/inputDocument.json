@@ -18,12 +18,6 @@
     "givenName": "Jinju",
     "familyName": "Hwang",
     "gender": "Female",
-    "image": "data:image/png;base64,iVBORw0KGgokJggg==",
-    "residentSince": "2015-01-01",
-    "lprCategory": "C09",
-    "lprNumber": "999-999-999",
-    "commuterClassification": "C1",
-    "birthCountry": "Bahamas",
-    "birthDate": "1958-07-17"
+    "image": "data:image/png;base64,iVBORw0KGgokJggg=="
   }
 }
