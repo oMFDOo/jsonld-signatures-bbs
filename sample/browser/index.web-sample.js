@@ -31,7 +31,7 @@ import exampleControllerDoc2 from "./data/controllerDocument2.json";
 import bbsContext from "./data/bbs.json";
 // ProofFrame
 import revealDocument from "./data/deriveProofFrame.json";
-import revealDocument2 from "./data/deriveProofFrame.json";
+import revealDocument2 from "./data/deriveProofFrame2.json";
 import citizenVocab from "./data/citizenVocab.json";
 import credentialContext from "./data/credentialsContext.json";
 // Jwk, Jws ~
