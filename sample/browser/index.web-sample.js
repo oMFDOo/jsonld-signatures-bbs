@@ -49,8 +49,8 @@ const documents = {
   "https://w3id.org/security/suites/jws-2020/v1": suiteContext,
 };
 const documents2 = {
-  "did:example:489398593#test": keyPairOptions2,
-  "did:example:489398593": exampleControllerDoc2,
+  "did:example:489398594#test": keyPairOptions2,
+  "did:example:489398594": exampleControllerDoc2,
   "https://w3id.org/security/bbs/v1": bbsContext,
   "https://w3id.org/citizenship/v1": citizenVocab,
   "https://www.w3.org/2018/credentials/v1": credentialContext,
@@ -62,10 +62,9 @@ const documents2 = {
 var cnt = 0;
 
 const customDocLoader = (url) => {
-  console.log("카운팅 쓰타", cnt, cnt%2==0);
   if (cnt % 2 == 0) {
     const context = documents[url];
-    //console.log("url1 : ", url);
+    console.log("url1 : ", url);
   
     if (context) {
       return {
@@ -80,7 +79,7 @@ const customDocLoader = (url) => {
   }
   else {
     const context = documents2[url];
-    //console.log("url2 : ", url);
+    console.log("url2 : ", url);
   
     if (context) {
       return {
@@ -245,12 +244,14 @@ const main = async () => {
     purpose: new purposes.AssertionProofPurpose(),
     documentLoader,
   });
+  cnt++;
   // Issuer 2의 파생된 증명 확인
   verified = await verify(derivedProof2, {
     suite: new BbsBlsSignatureProof2020(),
     purpose: new purposes.AssertionProofPurpose(),
     documentLoader,
   });
+  cnt++;
 
   console.log("Verification result : VP1의 derivedProof 검증 결과");
   console.log(JSON.stringify(verified, null, 2));
