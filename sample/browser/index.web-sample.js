@@ -192,6 +192,24 @@ const main = async () => {
   console.log("Verification result : Issuer2의 일반 VC 검증 결과");
   console.log(JSON.stringify(verified2, null, 2));
 
+  /* #region Proof 생성 전 VP 변형 테스트 */
+ 
+  // VP 변형 테스트 2
+  // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/Jinju/g, 'Chacha');
+  // console.log("변형 내용");
+  // console.log(change);
+  // change = JSON.parse(change);
+  // signedDocument = change;
+  
+  // VC 변형 테스트 2 - 데이터 누락
+  // let change = JSON.stringify(signedDocument, null, 2).toString().replace(/"gender": "Female",/g, '');
+  // console.log("변형 내용");
+  // console.log(change);
+  // change = JSON.parse(change);
+  // signedDocument = change;
+
+  /* #endregion */
+
 
   //Derive a proof
   // 증명 도출 : Issuer1의 VC를 이용한 서명 확장 ==> VP
@@ -216,13 +234,13 @@ const main = async () => {
 
   /* #region VP 변형 테스트 */
  
-  // VP 변형 테스트 2
+  // VP 변형 테스트 3
   // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/Jinju/g, 'Chacha');
   // console.log(change);
   // change = JSON.parse(change);
   // derivedProof = change;
   
-  // VC 변형 테스트 2 - 데이터 누락
+  // VC 변형 테스트 3 - 데이터 누락
   // let change = JSON.stringify(derivedProof, null, 2).toString().replace(/"gender": "Female",/g, '');
   // console.log("변형 내용");
   // console.log(change);
