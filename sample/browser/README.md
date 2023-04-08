@@ -6,6 +6,7 @@
  - data 폴더 내부 json 파일 : 테스트를 위한 사용자 관련 정보
 
 <br>
+
 [이 곳](https://github.com/oMFDOo/jsonld-signatures-bbs/blob/master/document/BBS%EC%84%9C%EB%AA%85%20%EA%B2%80%EC%A6%9D%20%ED%85%8C%EC%8A%A4%ED%8A%B8_23.01.02_v0.5.pdf)
 에서 테스트 내용 및 실행 방법을 확인할 수 있습니다.
 
