@@ -7,8 +7,8 @@
 
 <br>
 
-[이 곳](https://github.com/oMFDOo/jsonld-signatures-bbs/blob/master/document/BBS%EC%84%9C%EB%AA%85%20%EA%B2%80%EC%A6%9D%20%ED%85%8C%EC%8A%A4%ED%8A%B8_23.01.02_v0.5.pdf)
-에서 테스트 내용 및 실행 방법을 확인할 수 있습니다.
+테스트 내용 및 실행 방법은 [해당 문서](https://github.com/oMFDOo/jsonld-signatures-bbs/blob/master/document/BBS%EC%84%9C%EB%AA%85%20%EA%B2%80%EC%A6%9D%20%ED%85%8C%EC%8A%A4%ED%8A%B8_23.01.02_v0.5.pdf)로 확인할 수 있습니다. <br>
+해당 테스트에 대해 발행된 [논문](https://github.com/oMFDOo/oMFDOo/blob/main/document/BBS%2B%EC%84%9C%EB%AA%85.pdf)을 확인할 수 있습니다.
 
 <br>
 
