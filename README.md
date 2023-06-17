@@ -1,5 +1,13 @@
 [![MATTR](./docs/assets/mattr-logo-square.svg)](https://github.com/mattrglobal)
 
+
+# BBS+ 검증 테스트 코드 위치
+
+ [테스트코드](./sample/browser)는 sample/browser폴더에 위치해있습니다. <br>
+ 테스트를 위한 방안과 [문서](./document/)는 document 폴더에서 확인할 수 있습니다.
+
+<hr>
+
 # jsonld-signatures-bbs
 
 ![npm-version](https://badgen.net/npm/v/@mattrglobal/jsonld-signatures-bbs)
